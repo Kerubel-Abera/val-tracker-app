@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">valoTracker</string>
+    <string name="avg_cs">AVG CS</string>
+    <string name="blue">Blue</string>
+    <string name="bomb_defused">Bomb defused</string>
+    <string name="bomb_detonated">Bomb detonated</string>
+    <string name="character_image">character image</string>
+    <string name="defeat">DEFEAT</string>
+    <string name="draw">DRAW</string>
+    <string name="eliminated">Eliminated</string>
+    <string name="empty_placeholder">null</string>
+    <string name="exit_button">Exit To Login Button</string>
+    <string name="forward_icon">Forward icon</string>
+    <string name="kda">KDA</string>
+    <string name="match_details">Match Details</string>
+    <string name="player">PLAYER</string>
+    <string name="rank_image">Rank Image</string>
+    <string name="rank_placeholder">SILVER 1</string>
+    <string name="rank_rating">RANK RATING</string>
+    <string name="rank_rating_max">" / 100"</string>
+    <string name="red">Red</string>
+    <string name="round_timer_expired">Round timer expired</string>
+    <string name="rounds">Rounds</string>
+    <string name="search_user_statistics">Search User Statistics</string>
+    <string name="surrendered">Surrendered</string>
+    <string name="tag_placeholder">TAG</string>
+    <string name="user_does_not_exist">This user does not exist</string>
+    <string name="username_label">USERNAME</string>
+    <string name="valorant_icon">Valorant emblem</string>
+    <string name="victory">VICTORY</string>
+    <string name="round_type_icon">Round type icon</string>
+</resources>
