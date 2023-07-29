@@ -52,8 +52,6 @@ import com.example.valotracker.util.Constants.MAX_TAG_CHARACTERS
 import com.example.valotracker.util.Constants.MAX_USERNAME_CHARACTERS
 import com.example.valotracker.util.Status
 
-// TODO: Remake the login screen.
-
 
 /**
  * Composable function that displays the login screen.
