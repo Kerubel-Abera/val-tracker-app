@@ -1,6 +1,6 @@
 # Valorant Tracker App
 
-![App Preview]((https://youtube.com/shorts/qpdbiNTdA9Q?feature=share))
+![App Preview](https://youtube.com/shorts/qpdbiNTdA9Q?feature=share)
 
 ## Overview
 
