@@ -38,12 +38,18 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.valotracker.R
 import com.example.valotracker.ui.theme.Gray
+import com.example.valotracker.ui.theme.HUGE_PADDING
+import com.example.valotracker.ui.theme.LARGER_PADDING
+import com.example.valotracker.ui.theme.MEDIUM_PADDING
 import com.example.valotracker.ui.theme.Red
+import com.example.valotracker.ui.theme.SCREEN_CONSTRAINT
 import com.example.valotracker.ui.theme.backgroundColor
 import com.example.valotracker.ui.theme.textColor
 import com.example.valotracker.ui.theme.textFieldBackgroundColor
 import com.example.valotracker.ui.theme.textFieldFocusedLabelColor
 import com.example.valotracker.ui.viewmodels.SharedViewModel
+import com.example.valotracker.util.Constants.MAX_TAG_CHARACTERS
+import com.example.valotracker.util.Constants.MAX_USERNAME_CHARACTERS
 import com.example.valotracker.util.Status
 
 // TODO: Remake the login screen.
@@ -75,17 +81,18 @@ fun LoginScreen(
     {
         Column(
             Modifier.fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
         ){
 
-            Image(painter = painterResource(id = R.drawable.valorant_emblem),
+            Image(
+                painter = painterResource(id = R.drawable.valorant_emblem),
                 contentDescription = stringResource(R.string.valorant_icon),
                 modifier = Modifier
                     .size(100.dp)
                     .align(alignment = Alignment.CenterHorizontally)
+                    .padding(bottom = LARGER_PADDING)
             )
-
-            Spacer(modifier = Modifier.padding(32.dp))
 
 
             Text(
@@ -97,9 +104,10 @@ fun LoginScreen(
                 fontWeight = FontWeight.Bold
             )
 
-            Spacer(modifier = Modifier.padding(8.dp))
-
-            Row(modifier = Modifier.fillMaxWidth(),
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = MEDIUM_PADDING),
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically)
             {
@@ -114,7 +122,7 @@ fun LoginScreen(
                         ),
                     value = username,
                     onValueChange = {
-                        if (it.length < 16){
+                        if (it.length <= MAX_USERNAME_CHARACTERS){
                             username = it
                         }
                     },
@@ -141,7 +149,7 @@ fun LoginScreen(
                     color = Color.White,
                     fontSize = 32.sp,
                     fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(8.dp, 0.dp)
+                    modifier = Modifier.padding(horizontal = MEDIUM_PADDING)
                 )
 
                 TextField(
@@ -154,7 +162,7 @@ fun LoginScreen(
                         ),
                     value = tag,
                     onValueChange = {
-                        if(it.length < 6) {
+                        if(it.length <= MAX_TAG_CHARACTERS) {
                             tag = it
                         }
                     },
@@ -164,7 +172,7 @@ fun LoginScreen(
                         unfocusedIndicatorColor = Color.Transparent,
                         disabledIndicatorColor = Color.Transparent,
                         focusedLabelColor = MaterialTheme.colorScheme.textFieldFocusedLabelColor,
-                        unfocusedLabelColor = Color(0xFF626262)
+                        unfocusedLabelColor = Gray
                     ),
                     label = {
                         Text(
@@ -177,39 +185,52 @@ fun LoginScreen(
 
             }
 
-            Spacer(Modifier.padding(24.dp))
-
-            if (player == null) {
-                LoginButton(
-                    onClick = { sharedViewModel.getPlayer(username, tag) },
-                    buttonIconId = R.drawable.ic_forward_login,
-                    buttonColor = Red
-                )
-            } else {
-                when (player!!.status) {
-                    Status.SUCCESS -> {
-                        LaunchedEffect(Unit){
-                            navigateToHomeScreen()
+            Column(
+                modifier = Modifier
+                    .padding(top = HUGE_PADDING)
+                    .fillMaxWidth()
+                    .height(150.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                if (player == null) {
+                    LoginButton(
+                        onClick = { sharedViewModel.getPlayer(username, tag) },
+                        buttonIconId = R.drawable.ic_forward_login,
+                        buttonColor = Red
+                    )
+                } else {
+                    when (player!!.status) {
+                        Status.SUCCESS -> {
+                            LaunchedEffect(Unit){
+                                navigateToHomeScreen()
+                            }
                         }
-                    }
-                    Status.LOADING -> {
-                        CircularProgressIndicator(
-                            color = Red
-                        )
-                    }
-                    Status.ERROR -> {
-                        LoginButton(
-                            onClick = { sharedViewModel.getPlayer(username, tag) },
-                            buttonIconId = R.drawable.ic_forward_login,
-                            buttonColor = Red
-                        )
-                        Text(
-                            modifier = Modifier.padding(top = 8.dp),
-                            text = stringResource(R.string.user_does_not_exist),
-                            color = Color.Red)
+                        Status.LOADING -> {
+                            CircularProgressIndicator(
+                                color = Red
+                            )
+                        }
+                        Status.ERROR -> {
+                            LoginButton(
+                                onClick = { sharedViewModel.getPlayer(username, tag) },
+                                buttonIconId = R.drawable.ic_forward_login,
+                                buttonColor = Red
+                            )
+
+                            Text(
+                                modifier = Modifier
+                                    .padding(
+                                        top = MEDIUM_PADDING,
+                                        start = SCREEN_CONSTRAINT,
+                                        end = SCREEN_CONSTRAINT
+                                    ),
+                                text = player!!.message ?: "Unknown Error",
+                                color = Color.Red)
+                        }
                     }
                 }
             }
+
         }
     }
 }

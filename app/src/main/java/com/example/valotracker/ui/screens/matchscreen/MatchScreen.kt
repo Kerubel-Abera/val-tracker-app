@@ -56,13 +56,13 @@ fun MatchScreen(
             },
             content = { paddingValues ->
                 Column {
-                    when (val status = matchDetails!!.status) {
+                    when (matchDetails!!.status) {
                         Status.LOADING -> {
                             Loading()
                         }
 
                         Status.ERROR -> {
-                            Text(text = "ERROR: ${matchDetails!!.data!!.status}")
+                            //Text(text = "ERROR: ${matchDetails!!.data!!.status}")
                         }
 
                         Status.SUCCESS -> {
