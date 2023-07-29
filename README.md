@@ -36,6 +36,4 @@ This app is solely intended for demonstration purposes and to showcase my Androi
 
 ## Feedback and Contact
 
-If you have any feedback. You can contact me at kerubela1@gmail.com.
-
-Thank you for checking out my Valorant Tracker App!
+Enjoy exploring the Valorant Tracker App and thank you for your interest! If you have any questions or feedback, feel free to contact me at kerubela1@gmail.com.
