@@ -1,8 +1,6 @@
 # Valorant Tracker App
 
-```html
-<iframe src="https://drive.google.com/file/d/1U4eFPm2XoI1vqaRXnQxwg2sSkNQN1_kY/preview" width="640" height="480"></iframe>
-```
+https://github.com/Kerubel-Abera/val-tracker-app/assets/70806461/26bc75c5-d1a8-48aa-aff9-7ba3685b1eeb
 
 ## Overview
 
