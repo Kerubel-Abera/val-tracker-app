@@ -1,12 +1,12 @@
 # Valorant Tracker App
 
-https://github.com/Kerubel-Abera/val-tracker-app/assets/70806461/26bc75c5-d1a8-48aa-aff9-7ba3685b1eeb
-
 ## Overview
 
 Welcome to the Valorant Tracker App! This is a personal project developed to showcase my skills as an Android developer. The app serves as a stat tracker for the popular game "Valorant" by Riot Games, providing users with a user-friendly interface to view their account statistics.
 
 Please note that this app is still in development, and some features may be incomplete or subject to change.
+
+https://github.com/Kerubel-Abera/val-tracker-app/assets/70806461/26bc75c5-d1a8-48aa-aff9-7ba3685b1eeb
 
 ## Features
 
