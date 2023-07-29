@@ -20,6 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.valotracker.R
 import com.example.valotracker.ui.screens.homescreen.Loading
+import com.example.valotracker.ui.theme.LARGER_PADDING
 import com.example.valotracker.ui.theme.SCREEN_CONSTRAINT
 import com.example.valotracker.ui.theme.backgroundColor
 import com.example.valotracker.ui.viewmodels.SharedViewModel
@@ -56,13 +57,13 @@ fun MatchScreen(
             },
             content = { paddingValues ->
                 Column {
-                    when (val status = matchDetails!!.status) {
+                    when (matchDetails!!.status) {
                         Status.LOADING -> {
                             Loading()
                         }
 
                         Status.ERROR -> {
-                            Text(text = "ERROR: ${matchDetails!!.data!!.status}")
+                            //Text(text = "ERROR: ${matchDetails!!.data!!.status}")
                         }
 
                         Status.SUCCESS -> {
@@ -108,9 +109,9 @@ fun MatchScreen(
                                     matchLength = matchLengthFormatted,
                                     matchDate = datetimeString
                                 )
-                                Spacer(Modifier.padding(16.dp))
+                                Spacer(Modifier.padding(LARGER_PADDING))
                                 MatchRounds(matchDetails!!.data!!.data.rounds, sharedViewModel)
-                                Spacer(Modifier.padding(16.dp))
+                                Spacer(Modifier.padding(LARGER_PADDING))
                             }
                             MatchPlayers(
                                 players = matchDetails!!.data!!.data.players.allPlayers.sortedByDescending { it.stats.score },

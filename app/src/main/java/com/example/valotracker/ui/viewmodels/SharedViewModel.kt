@@ -29,6 +29,7 @@ import com.example.valotracker.util.Resource
 import com.example.valotracker.util.RoundType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 import java.util.Locale
 import javax.inject.Inject
 
@@ -64,6 +65,22 @@ class SharedViewModel @Inject constructor(
         "radiant" to ImmortalRankColor
     )
 
+    private fun getErrorMessages(errorBody: String?): String {
+        var errorMessages = "Unknown Error"
+
+        if (errorBody != null) {
+            errorMessages = ""
+            val bodyObj = JSONObject(errorBody)
+            val errors = bodyObj.getJSONArray("errors")
+
+            for (i in 0 until errors.length()) {
+                val error = errors.getJSONObject(i)
+                errorMessages += error.getString("message") + "\n"
+            }
+        }
+        return errorMessages
+    }
+
 
     /**
      * Fetches player data from the repository.
@@ -77,10 +94,13 @@ class SharedViewModel @Inject constructor(
             if (it.isSuccessful) {
                 _player.value = Resource.success(it.body())
             } else {
-                _player.value = Resource.error(it.errorBody().toString(), null)
+                val errorMessages = getErrorMessages(it.errorBody()?.string())
+                _player.value = Resource.error(errorMessages, it.body())
             }
         }
     }
+
+
 
 
     /**
@@ -142,13 +162,13 @@ class SharedViewModel @Inject constructor(
         viewModelScope.launch {
             Log.i("matchDetails", "LOADING")
             _matchDetails.value = Resource.loading(null)
-            repository.getMatchDetails(matchId).let {
-                if (it.isSuccessful) {
+            repository.getMatchDetails(matchId).let { response ->
+                if (response.isSuccessful) {
                     Log.i("matchDetails", "SUCCES")
-                    _matchDetails.value = Resource.success(it.body())
+                    _matchDetails.value = Resource.success(response.body())
                 } else {
                     Log.i("matchDetails", "FAILURE")
-                    _matchDetails.value = Resource.error(it.errorBody().toString(), it.body())
+                    _matchDetails.value = Resource.error(response.errorBody().toString(), response.body())
                 }
             }
         }
