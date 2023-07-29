@@ -24,9 +24,12 @@ Please note that this app is still in development, and some features may be inco
 
 To test the app, you can use the following Valorant usernames:
 
-1. Username: Joshˆ          Tag: NA1
-2. Username: Mike Oxlong    Tag: 7239
-3. Username: Emily          Tag: 2005
+1. Username: Joshˆ
+   Tag: NA1
+2. Username: Mike Oxlong
+   Tag: 7239
+3. Username: Emily
+   Tag: 2005
 
 Feel free to enter any of the above usernames in the app to see the account statistics. Please note that the users of these usernames could change them at any time. I will do my best to update this.
 
