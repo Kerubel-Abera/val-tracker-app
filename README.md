@@ -6,7 +6,7 @@ Welcome to the Valorant Tracker App! This is a personal project developed to sho
 
 Please note that this app is still in development, and some features may be incomplete or subject to change.
 
-https://github.com/Kerubel-Abera/val-tracker-app/assets/70806461/26bc75c5-d1a8-48aa-aff9-7ba3685b1eeb
+[![Watch the video](https://img.youtube.com/vi/<qpdbiNTdA9Q>/hqdefault.jpg)](https://www.youtube.com/embed/qpdbiNTdA9Q>)
 
 ## Features
 
