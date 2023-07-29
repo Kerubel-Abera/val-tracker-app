@@ -118,7 +118,7 @@ fun LoginScreen(
                         .fillMaxWidth(0.4f)
                         .background(
                             color = MaterialTheme.colorScheme.textFieldBackgroundColor,
-                            shape = RoundedCornerShape(8.dp)
+                            shape = RoundedCornerShape(MEDIUM_PADDING)
                         ),
                     value = username,
                     onValueChange = {
@@ -158,7 +158,7 @@ fun LoginScreen(
                         .fillMaxWidth(0.45f)
                         .background(
                             color = MaterialTheme.colorScheme.textFieldBackgroundColor,
-                            shape = RoundedCornerShape(8.dp)
+                            shape = RoundedCornerShape(MEDIUM_PADDING)
                         ),
                     value = tag,
                     onValueChange = {
