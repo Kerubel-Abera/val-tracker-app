@@ -6,6 +6,8 @@ Welcome to the Valorant Tracker App! This is a personal project developed to sho
 
 Please note that this app is still in development, and some features may be incomplete or subject to change.
 
+[Download the app](https://www.mediafire.com/file/58oys0y6x04b7bi/valtracker.apk)
+
 ### Demo Video
 
 [![Watch the video](https://img.youtube.com/vi/qpdbiNTdA9Q/hqdefault.jpg)](https://www.youtube.com/embed/qpdbiNTdA9Q)
